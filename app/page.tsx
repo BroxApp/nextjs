@@ -8,10 +8,13 @@ const vazirmatn = Vazirmatn({
 
 export default function Home() {
   return (
-    <div className={`${vazirmatn.className} flex flex-col flex-1 items-center bg-zinc-200 font-sans dark:bg-black`}>
-      <h1 className="font-extrabold m-4">React Vs Nextjs</h1>
-      <Link href="/react-vs-nextjs-en" className="font-medium">React Vs Nextjs (English)</Link>
-      <Link href="/react-vs-nextjs-fa" className="font-medium">React Vs Nextjs (Farsi)</Link>
+    <div 
+    style={{backgroundImage: "url('/images/BroxApp.png')", 
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}
+    className={`${vazirmatn.className} flex flex-col flex-1 items-center font-sans text-gray-50`}>
     </div>
   );
 }
