@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Vazirmatn} from "next/font/google";
 
 const vazirmatn = Vazirmatn({

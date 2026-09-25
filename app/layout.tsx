@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Link href="/SSR-CSR" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">Cards</Link>
           <Link href="/shoping" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">Product</Link>
         </nav>
-        <div className="flex flex-1">
+        <div className="">
           {children}
         </div>
        </div>

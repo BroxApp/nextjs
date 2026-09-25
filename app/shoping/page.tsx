@@ -1,7 +1,9 @@
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/components/types/Product";
 
-export default async function products (){
+
+
+export default async function shoping (){
     const res = await fetch ("https://dummyjson.com/products?limit=12");
     const data = await res.json();
     const products: Product[] = data.products;
@@ -14,5 +16,11 @@ export default async function products (){
                 ))
             }
         </div>
+
+      
+
     )
+
+
+    
 }

@@ -1,3 +1,4 @@
+
 import Card from "@/components/Card"
 const products = [
     {title: "Card 1", name: "Phone", description: "This is phone."},
