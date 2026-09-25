@@ -8,12 +8,13 @@ export default function HeroSection(){
         <section>
             <div>
                 <HeroNav/>
-
+                    <h1>Hello Next js World</h1>
+                    <p>This is my Dream.</p>
                 <HeroBtn/>
             </div>
             <div className="relative w-full max-w-3xl h-100 mt-12">
             <Image
-                src="/images/hero.png"
+                src="/images/BroxApp.png"
                 alt=""
                 fill
                 priority

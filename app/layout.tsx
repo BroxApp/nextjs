@@ -1,6 +1,6 @@
 
-import Header from "@/components/Header";
-import Link from "next/link";
+// import Header from "@/components/Header";
+// import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
        <div className="flex flex-col h-screen">
-         <Header/>
+         {/* <Header/>
         <nav className="flex gap-4 justify-center bg-blue-900 p-4">
           <Link href="/" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">Home</Link>
           <Link href="/react-vs-nextjs-en" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">
@@ -37,8 +37,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           React Vs Next.js Farsi</Link>
           <Link href="/SSR-CSR" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">Cards</Link>
           <Link href="/shoping" className="flex-1 text-center bg-blue-700 p-1.5 rounded-2xl text-gray-50">Product</Link>
-        </nav>
-        <div className="">
+        </nav> */}
+        <div>
           {children}
         </div>
        </div>
