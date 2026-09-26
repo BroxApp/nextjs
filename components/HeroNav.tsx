@@ -8,7 +8,7 @@ export default function HeroNav (){
         <nav className="flex justify-center gap-8">
             <Logo/>
             <Link href="/">Home</Link>
-            <Link href="./react-vs-nextjs-fa">Content</Link>
+            <Link href="./react-vs-nextjs-fa">Project</Link>
             <Link href="./react-vs-nextjs-en">About</Link>
             <Link href="./shoping">Product</Link>
             <HeroBtn/>
