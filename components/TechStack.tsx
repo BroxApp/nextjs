@@ -61,7 +61,7 @@ export default function TechStack() {
         className="text-xl uppercase tracking-widest text-white/50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.5 }}
+        transition={{ duration: 3, delay: 0.5 }}
       >
         Building with
       </motion.p>
@@ -90,7 +90,7 @@ export default function TechStack() {
         className="text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.5 }}
+        transition={{ duration: 1, delay: 3 }}
       >
         <p className="mt-12">
           You dream it, we build it. Turning your vision into digital reality.

@@ -9,6 +9,7 @@ const TYPING_SPEED_MS = 100;
 
 export default function HeroTyping() {
   const [displayedText, setDisplayedText] = useState("");
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   useEffect(() => {
     const startDelay = setTimeout(() => {
@@ -20,6 +21,7 @@ export default function HeroTyping() {
           index++;
         } else {
           clearInterval(interval);
+          setIsTypingComplete(true); 
         }
       }, TYPING_SPEED_MS);
 
@@ -32,7 +34,7 @@ export default function HeroTyping() {
   return (
     <div className="flex flex-col items-center justify-center text-white">
       <motion.h1
-        className="text-4xl font-bold text-amber-500 whitespace-nowrap text-center min-h-12 md:min-h-16"
+        className="text-6xl font-bold text-amber-500 whitespace-nowrap text-center min-h-12 md:min-h-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 3 }}
@@ -44,13 +46,15 @@ export default function HeroTyping() {
         className="mt-4 text-xl tracking-wide text-center grid place-items-center whitespace-nowrap"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }} // ظهور کانتینر شعار همزمان با شروع تایپ در ثانیه ۱
+        transition={{ duration: 0.5, delay: 1 }}
       >
         <span className="opacity-0 select-none [grid-area:1/1]">{SLOGAN}</span>
 
         <span className="[grid-area:1/1]">
           {displayedText}
-          <span className="animate-pulse text-amber-500">|</span>
+          {!isTypingComplete && (
+            <span className="animate-pulse text-amber-500 ml-1">|</span>
+          )}
         </span>
       </motion.div>
     </div>
