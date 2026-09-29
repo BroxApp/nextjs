@@ -56,8 +56,8 @@ const iconVariants = {
 
 export default function TechStack() {
   return (
-    <div className="flex flex-col items-center gap-3 mt-11">
-      <motion.p
+    <div className="flex flex-col items-center gap-3 mt-4">
+      {/* <motion.p
         className="text-xl uppercase tracking-widest text-white/50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -84,7 +84,7 @@ export default function TechStack() {
             </motion.div>
           );
         })}
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         className="text-center"
@@ -92,10 +92,10 @@ export default function TechStack() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 3 }}
       >
-        <p className="mt-12">
+        <p className="mt-6 text-3xl">
           You dream it, we build it. Turning your vision into digital reality.
         </p>
-        <p className="mt-1 text-white/70">
+        <p className="mt-1 text-white/70 text-2xl">
           Full-stack development & digital solutions
         </p>
       </motion.div>
