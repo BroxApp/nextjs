@@ -1,26 +1,10 @@
-import ProductCard from "@/components/ProductCard";
+import ProductGrid from "@/components/ProductGrid";
 import { Product } from "@/components/types/Product";
 
+export default async function Shoping() {
+  const res = await fetch("https://dummyjson.com/products?limit=48");
+  const data = await res.json();
+  const products: Product[] = data.products;
 
-
-export default async function shoping (){
-    const res = await fetch ("https://dummyjson.com/products?limit=12");
-    const data = await res.json();
-    const products: Product[] = data.products;
-
-    return(
-        <div className="grid grid-cols-4">
-            {
-                products.map((product)=>(
-                    <ProductCard key={product.id} product={product}/>
-                ))
-            }
-        </div>
-
-      
-
-    )
-
-
-    
+  return <ProductGrid products={products} />;
 }
