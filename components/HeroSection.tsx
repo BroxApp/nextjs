@@ -1,11 +1,10 @@
-// import HeroNav from "@/components/HeroNav";
 import SocialLinks from "./SocialLinks";
 import HeroTyping from "./HeroTyping";
-import TechStack from "./TechStack";
+import HeroTagline from "./HeroTagline";
 
 export default function HeroSection(){
     return(
-        <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-white">
+        <section id="hero" className="relative w-full min-h-screen flex flex-col justify-center items-center text-white">
             <video
                 autoPlay
                 muted
@@ -17,7 +16,7 @@ export default function HeroSection(){
         
         <div className="flex flex-col items-center justify-center space-y-3 w-full max-w-5xl px-4">
             <HeroTyping />
-            <TechStack />
+            <HeroTagline />
         </div>
             <SocialLinks/>
         </section>

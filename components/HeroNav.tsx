@@ -17,10 +17,11 @@ export default function HeroNav() {
       }`}
     >
       <Logo />
-      <Link href="/">Home</Link>
+      <Link href="/#hero">Home</Link>
       <Link href="/react-vs-nextjs-fa">Project</Link>
-      <Link href="/react-vs-nextjs-en">About</Link>
+      <Link href="/#Technologies">Tech Stack</Link>
       <Link href="/shoping">Product</Link>
+      <Link href="/react-vs-nextjs-en">About</Link>
       <HeroBtn />
     </nav>
   );

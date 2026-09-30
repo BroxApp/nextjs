@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 
 import { motion } from "framer-motion";
 import {
@@ -15,6 +17,7 @@ import {
   SiTailwindcss,
   SiLaravel,
   SiVite,
+  SiFramer,
   SiMysql,
 } from "react-icons/si";
 
@@ -31,6 +34,7 @@ const techIcons = [
   { icon: SiMysql, title: "MySQL", size: 52 },
   { icon: FaGitAlt, title: "Git", size: 46 },
   { icon: SiVite, title: "Vite", size: 44 },
+  { icon: SiFramer, title: "Framer Motion", size: 44 },
 ];
 
 const containerVariants = {
@@ -54,10 +58,18 @@ const iconVariants = {
   },
 };
 
-export default function TechStack() {
+export default function Technologies() {
   return (
-    <div className="flex flex-col items-center gap-3 mt-4">
-      {/* <motion.p
+    <div id="Technologies" className="relative flex flex-col justify-center items-center gap-3 w-full min-h-screen bg-cover bg-center bg-no-repeat instad bg-transparent">
+      <Image
+      src="/images/Tech-Background.png"
+      alt="Background"
+      fill
+      className="object-cover -z-10"
+      priority
+      />
+      
+      <motion.p
         className="text-xl uppercase tracking-widest text-white/50"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -84,20 +96,6 @@ export default function TechStack() {
             </motion.div>
           );
         })}
-      </motion.div> */}
-
-      <motion.div
-        className="text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3 }}
-      >
-        <p className="mt-6 text-3xl">
-          You dream it, we build it. Turning your vision into digital reality.
-        </p>
-        <p className="mt-1 text-white/70 text-2xl">
-          Full-stack development & digital solutions
-        </p>
       </motion.div>
     </div>
   );

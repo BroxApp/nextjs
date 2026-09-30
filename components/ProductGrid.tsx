@@ -19,7 +19,7 @@ export default function ProductGrid({ products }: Props) {
       setError("فقط حروف و اعداد مجاز است");
       return;
     }
-    if (val.length > 50) {
+    if (val.length > 20) {
       setError("حداکثر ۵۰ کاراکتر مجاز است");
       return;
     }
