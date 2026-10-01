@@ -60,7 +60,7 @@ const iconVariants = {
 
 export default function Technologies() {
   return (
-    <div id="Technologies" className="relative flex flex-col justify-center items-center gap-3 w-full min-h-screen bg-cover bg-center bg-no-repeat instad bg-transparent">
+    <div id="Technologies" className="relative flex flex-col justify-center items-center gap-3 w-full min-h-screen bg-cover bg-center bg-no-repeat bg-transparent">
       <Image
       src="/images/Tech-Background.png"
       alt="Background"
@@ -76,6 +76,15 @@ export default function Technologies() {
         transition={{ duration: 3, delay: 0.5 }}
       >
         Building with
+      </motion.p>
+
+      <motion.p
+        className="text-xl uppercase tracking-widest text-white/50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 3, delay: 2 }}
+      >
+        Crafting scalable and modern web applications with cutting-edge tools.
       </motion.p>
 
       <motion.div

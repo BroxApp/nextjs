@@ -19,7 +19,7 @@ export default function HeroNav() {
       <Logo />
       <Link href="/#hero">Home</Link>
       <Link href="/react-vs-nextjs-fa">Project</Link>
-      <Link href="/#Technologies">Tech Stack</Link>
+      <Link href="/#Technologies" scroll={true}>Tech Stack</Link>
       <Link href="/shoping">Product</Link>
       <Link href="/react-vs-nextjs-en">About</Link>
       <HeroBtn />
