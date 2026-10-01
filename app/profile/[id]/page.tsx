@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 
 const users = [
     {id: 1, name: "Ali1", email: "example1@gmail.com"},
@@ -11,12 +13,16 @@ const users = [
     {id: 9, name: "Ali9", email: "example9@gmail.com"},
 ]
 
-export default async function ProfilePage ({params}: {params: Promise<{id: string}>;}){
+export default async function ProfilePage ({params}: {params: Promise<{id: string}>}){
 
     const {id} = await params;
     const user = users.find((user)=>user.id === Number(id))
+    // const response = await fetch (`https://jsonplaceholder.typicode.com/users/${id}`)
+    // const user = await response.json();
+// not
     if(!user){
-        return <p>Invalid ID</p>
+        notFound()
+        // 404 not found
     }
     return(
         <div>
