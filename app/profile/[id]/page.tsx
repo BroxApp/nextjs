@@ -1,34 +1,66 @@
 import { notFound } from "next/navigation";
-
-
-const users = [
-    {id: 1, name: "Ali1", email: "example1@gmail.com"},
-    {id: 2, name: "Ali2", email: "example2@gmail.com"},
-    {id: 3, name: "Ali3", email: "example3@gmail.com"},
-    {id: 4, name: "Ali4", email: "example4@gmail.com"},
-    {id: 5, name: "Ali5", email: "example5@gmail.com"},
-    {id: 6, name: "Ali6", email: "example6@gmail.com"},
-    {id: 7, name: "Ali7", email: "example7@gmail.com"},
-    {id: 8, name: "Ali8", email: "example8@gmail.com"},
-    {id: 9, name: "Ali9", email: "example9@gmail.com"},
-]
+import Image from "next/image";
+type user = {
+    name: {title: string; first: string; last: string;};
+    gender: string;
+    phone: string;
+    cell: string;
+    email: string;
+    picture: {large: string; medium: string; thumbnail: string;}
+    location: {country: string; state: string; city: string;
+        street: {number: number; name: string;};
+    };
+}
 
 export default async function ProfilePage ({params}: {params: Promise<{id: string}>}){
 
     const {id} = await params;
-    const user = users.find((user)=>user.id === Number(id))
-    // const response = await fetch (`https://jsonplaceholder.typicode.com/users/${id}`)
-    // const user = await response.json();
-// not
+    const response = await fetch ("https://randomuser.me/api/?results=20")
+    const data = await response.json();
+    const user = data.results.find (
+        (user: user, index: number) => index + 1 === Number(id)
+    );
     if(!user){
         notFound()
         // 404 not found
     }
     return(
-        <div>
-            <h1>My Profile: {user.id}</h1>
-            <p>{user.name}</p>
-            <p>{user.email}</p>
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md bg-gray-400">
+            <Image
+                src={user.picture.large}
+                alt="user picture"
+                width={250}
+                height={250}
+                className="mx-auto rounded-full"
+            />
+
+            <h1 className="mt-4 text-2xl font-bold text-center">
+                {user.name.title} {user.name.first} {user.name.last}
+            </h1>
+
+            <div className="mt-6 space-y-2 text-gray-700">
+                <p><span className="font-semibold">Gender:</span> {user.gender}</p>
+                <p><span className="font-semibold">Phone:</span> {user.phone}</p>
+                <p><span className="font-semibold">Cell:</span> {user.cell}</p>
+                <p><span className="font-semibold">Email:</span> {user.email}</p>
+            </div>
+
+            <div className="mt-6 border-t pt-4">
+                <h2 className="text-lg font-semibold mb-2">Location</h2>
+                <p className="text-gray-700">
+                    {user.location.country},{" "}
+                    {user.location.state},{" "}
+                    {user.location.city},{" "}
+                    {user.location.street.name}{" "}
+                    {user.location.street.number}
+                </p>
+            </div>
+
+            <div className="mt-6 border-t pt-4">
+                <h2 className="text-lg font-semibold mb-2">Membership Duration</h2>
+                <p className="text-gray-700">{user.registered.date}</p>
+                <p className="text-gray-500">{user.registered.age} years</p>
+            </div>
         </div>
     )
 }
