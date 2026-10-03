@@ -15,8 +15,8 @@ export default function ProductCard({ product }: ProductCardProps) {
       <h2>{title}</h2>
       <h3>{category}</h3>
       <p>{description}</p>
-      <p>{price}</p>
-      <p>{rating}</p>
+      <p>{price} $</p>
+      <p>{rating} ⭐</p>
       <p>{brand}</p>
       <ProductBtn/>
     </div>

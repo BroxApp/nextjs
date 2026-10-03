@@ -4,7 +4,7 @@ import HeroTagline from "./HeroTagline";
 
 export default function HeroSection(){
     return(
-        <section id="hero" className="relative w-full min-h-screen flex flex-col justify-center items-center text-white">
+        <section id="hero" className="relative w-full min-h-screen flex flex-col justify-center items-center text-white px-4">
             <video
                 autoPlay
                 muted

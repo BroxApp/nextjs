@@ -15,7 +15,7 @@ type user = {
 export default async function ProfilePage ({params}: {params: Promise<{id: string}>}){
 
     const {id} = await params;
-    const response = await fetch ("https://randomuser.me/api/?results=20")
+    const response = await fetch ("https://randomuser.me/api/?results=20", { cache: "force-cache" })
     const data = await response.json();
     const user = data.results.find (
         (user: user, index: number) => index + 1 === Number(id)
@@ -24,42 +24,45 @@ export default async function ProfilePage ({params}: {params: Promise<{id: strin
         notFound()
         // 404 not found
     }
+    
     return(
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl shadow-md bg-gray-400">
+        <div className="flex flex-col md:flex-row w-auto justify-center gap-4 mt-10 p-10 rounded-xl shadow-md bg-gray-400">
             <Image
                 src={user.picture.large}
                 alt="user picture"
                 width={250}
                 height={250}
-                className="mx-auto rounded-full"
+                className=" rounded-full"
             />
 
-            <h1 className="mt-4 text-2xl font-bold text-center">
-                {user.name.title} {user.name.first} {user.name.last}
-            </h1>
+            <div className="flex flex-col mt-6">
+                <h2 className="mt-4 text-2xl font-bold ">
+                    {user.name.title} {user.name.first} {user.name.last}
+                </h2>
 
-            <div className="mt-6 space-y-2 text-gray-700">
-                <p><span className="font-semibold">Gender:</span> {user.gender}</p>
-                <p><span className="font-semibold">Phone:</span> {user.phone}</p>
-                <p><span className="font-semibold">Cell:</span> {user.cell}</p>
-                <p><span className="font-semibold">Email:</span> {user.email}</p>
+                <div className="space-y-2 text-gray-700">
+                    <p><span className="font-semibold">Gender:</span> {user.gender}</p>
+                    <p><span className="font-semibold">Phone:</span> {user.phone}</p>
+                    <p><span className="font-semibold">Cell:</span> {user.cell}</p>
+                    <p><span className="font-semibold">Email:</span> {user.email}</p>
+                </div>
             </div>
 
-            <div className="mt-6 border-t pt-4">
-                <h2 className="text-lg font-semibold mb-2">Location</h2>
+            <div className="mt-6 pt-4">
+                <h2 className="text-2xl font-bold">Location</h2>
                 <p className="text-gray-700">
                     {user.location.country},{" "}
                     {user.location.state},{" "}
-                    {user.location.city},{" "}
+                    {user.location.city},{" "}<br/>
                     {user.location.street.name}{" "}
                     {user.location.street.number}
                 </p>
             </div>
 
-            <div className="mt-6 border-t pt-4">
-                <h2 className="text-lg font-semibold mb-2">Membership Duration</h2>
+            <div className="mt-6 pt-4">
+                <h2 className="text-2xl font-bold">Membership Duration</h2>
                 <p className="text-gray-700">{user.registered.date}</p>
-                <p className="text-gray-500">{user.registered.age} years</p>
+                <p className="text-gray-700">{user.registered.age} years</p>
             </div>
         </div>
     )

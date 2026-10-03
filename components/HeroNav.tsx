@@ -13,10 +13,10 @@ export default function HeroNav() {
   return (
     <>
     <nav
-      className={`z-50 flex win-w-0 items-center justify-between px-3 md:px-6 py-3 text-white ${
+      className={`z-50 win-w-0 items-center  px-3 md:px-6 py-3 text-white ${
         isHome
-          ? "fixed inset-x-0 top-0 bg-transparent"
-          : "sticky top-0 bg-slate-900"
+          ? "fixed inset-x-0 top-0 bg-transparent flex justify-center gap-4"
+          : "sticky top-0 bg-slate-900 gap-4 flex justify-center"
       }`}
     >
       <Logo />

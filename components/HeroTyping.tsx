@@ -37,7 +37,7 @@ export default function HeroTyping() {
   return (
     <div className="flex flex-col items-center justify-center text-white">
       <motion.h1
-        className="text-6xl font-bold text-amber-500 whitespace-nowrap text-center min-h-12 md:min-h-16"
+        className="text-3xl sm:text-5xl md:text-6xl font-bold text-amber-500 whitespace-nowrap text-center min-h-12 md:min-h-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 5 }}
@@ -46,7 +46,7 @@ export default function HeroTyping() {
       </motion.h1>
 
       <motion.div
-        className="mt-4 text-xl tracking-wide text-center grid place-items-center whitespace-nowrap"
+        className="mt-4 text-sm sm:text-lg md:text-xl tracking-wide text-center grid place-items-center whitespace-nowrap"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
