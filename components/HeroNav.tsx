@@ -5,7 +5,7 @@ import Link from "next/link";
 import HeroBtn from "@/components/HeroBtn";
 import Logo from "@/components/SvgLogo";
 
-export default function HeroNav() {
+export default function HeroNav(){
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";

@@ -50,7 +50,7 @@ export default function ProductGrid({ products }: Props) {
         {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 bg-slate-500">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 bg-gray-500">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
