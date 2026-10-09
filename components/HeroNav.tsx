@@ -30,8 +30,9 @@ export default function HeroNav(){
         </button>
 
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#hero">Home</Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/react-vs-nextjs-fa">Project</Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/react-vs-nextjs-fa">Projects</Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#Technologies" scroll={true}>Tech Stack</Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#faq" scroll={true}> F A Q </Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/shoping">Product</Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/react-vs-nextjs-en">About</Link>
 

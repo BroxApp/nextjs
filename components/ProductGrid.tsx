@@ -46,11 +46,11 @@ export default function ProductGrid({ products }: Props) {
     <div>
       <div className="flex flex-col sm:flex-row items-center justify-center w-full mx-auto my-3 gap-2">
         <select
-          className="border border-gray-300 rounded-md px-4 py-2 text-gray-200"
+          className="border border-gray-300 rounded-md px-4 py-2 text-gray-300"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="">همه دسته‌بندی‌ها</option>
+          <option value="">All categories</option>
           <option value="beauty">Beauty</option>
           <option value="fragrances">Fragrances</option>
           <option value="furniture">Furniture</option>
@@ -69,8 +69,8 @@ export default function ProductGrid({ products }: Props) {
             type="text"
             value={query}
             onChange={handleChange}
-            placeholder="جستجوی محصول..."
-            className={`w-full px-4 py-2 rounded-md border outline-none text-gray-900 ${
+            placeholder="Search ..."
+            className={`w-full px-4 py-2 rounded-md border placeholder:text-gray-300 outline-none text-gray-100 ${
               error ? "border-red-500" : "border-gray-300"
             }`}
           />

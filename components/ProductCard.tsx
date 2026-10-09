@@ -10,7 +10,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { title, category, description, price, rating, brand, thumbnail, } = product;
 
   return (
-    <div className="relative border-2 border-amber-400 rounded-2xl bg-slate-500 p-4 m-2">
+    <div className="relative border-2 border-amber-400 rounded-2xl bg-gray-500 p-4 m-2">
       <div className="pb-5">
         <Image src={thumbnail} alt={title} width={200} height={200} />
         <h2>{title}</h2>
