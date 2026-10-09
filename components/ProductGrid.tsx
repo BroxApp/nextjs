@@ -21,7 +21,7 @@ export default function ProductGrid({ products }: Props) {
       return;
     }
     if (val.length > 20) {
-      setError("حداکثر ۲۰ کاراکتر مجاز است"); // اصلاح متن خطا متناسب با شرط
+      setError("حداکثر ۲۰ کاراکتر مجاز است");
       return;
     }
 
@@ -29,26 +29,24 @@ export default function ProductGrid({ products }: Props) {
     setQuery(val);
   }
 
-  // ترکیب فیلتر دسته‌بندی و جستجوی متنی داخل useMemo
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      // ۱. بررسی تطابق دسته‌بندی
+     
       const matchesCategory = category ? product.category === category : true;
 
-      // ۲. بررسی تطابق عنوان محصول با عبارت جستجو
       const matchesQuery = query.trim()
         ? product.title.toLowerCase().includes(query.toLowerCase())
         : true;
 
       return matchesCategory && matchesQuery;
     });
-  }, [query, category, products]); // افزودن category به آرایه وابستگی‌ها
+  }, [query, category, products]);
 
   return (
     <div>
       <div className="flex flex-col sm:flex-row items-center justify-center w-full mx-auto my-3 gap-2">
         <select
-          className="border border-gray-300 rounded-md px-4 py-2 text-gray-900"
+          className="border border-gray-300 rounded-md px-4 py-2 text-gray-200"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
@@ -56,6 +54,14 @@ export default function ProductGrid({ products }: Props) {
           <option value="beauty">Beauty</option>
           <option value="fragrances">Fragrances</option>
           <option value="furniture">Furniture</option>
+          <option value="kitchen-accessories">Kitchen accessories</option>
+          <option value="laptops">Laptops</option>
+          <option value="mens-shirts">Mens shirts</option>
+          <option value="mens-shoes">Mens shoes</option>
+          <option value="mens-watches">Mens watches</option>
+          <option value="mens-watches">Mens watches</option>
+          <option value="home-decoration">Home decoration</option>
+          <option value="groceries">Groceries</option>
         </select>
 
         <div className="flex flex-col w-full max-w-md">

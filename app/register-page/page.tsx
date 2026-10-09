@@ -108,21 +108,3 @@ export default function RegisterPage(){
         </>
     )
 }
-
-// در نکست جی اس یک قابلیت مهم این است که می‌توانیم فرم را مستقیم به یک Server Action متصل کنیم.
-// export default function RegisterPage () {
-//     async function register(formData: FormData){
-//         "use server";
-
-//         console.log(formData.get("username"));
-//         console.log(formData.get("email"));
-//     }
-//     return(
-//         <form action={register}>
-//             <input type="text" name="username" placeholder="User Name" className="border-2 border-amber-300" />
-//             <input type="email" name="email" placeholder="Email" className="border-2 border-amber-300"/>
-//             <button type="submit">Register</button>
-//         </form>
-//     )
-// }
-
