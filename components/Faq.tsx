@@ -1,84 +1,64 @@
+'use client'
 
-// export default function Faq (){
-//     return (
-//         <div id="faq" className="w-full h-screen">
-//            <h2 className="text-4lg text-gray-200">Frequently Asked Questions (FAQ)</h2>
-//            <div>
-//                 <h3>General & Pricing</h3>
-//                 <div>
-//                     <p></p>
-//                     <span></span>
-//                 </div>
-//                 <div>
-//                     <p></p>
-//                     <span></span>
-//                 </div>
-//                 <div>
-//                     <p></p>
-//                     <span></span>
-//                 </div>
-//            </div>
-//            <div>
-//                 <h3>Technical & Functionality</h3>
-//            </div>
-//            <div>
-//                 <h3>Support & Ownership</h3>
-//            </div>
-            
+import Image from "next/image"
+import { useState } from "react"
 
-//         </div>
-//     )
-// }
-
-export default function Faq() {
+export default function Faq (){
+    const  [activeCard, setActiveCard] = useState(0);
   return (
-    <div id="faq" className="w-full min-h-screen bg-slate-950 py-12 px-4">
-      {/* تیتر اصلی */}
-      <h2 className="text-3xl font-bold text-gray-200 text-center mb-10">
-        Frequently Asked Questions (FAQ)
-      </h2>
-
-      <div className="max-w-3xl mx-auto space-y-8">
-        {/* بخش اول: General & Pricing */}
-        <div>
-          <h3 className="text-xl font-semibold text-orange-400 mb-4">
-            General & Pricing
-          </h3>
-
-          <div className="space-y-4">
-            {/* ساختار یک سوال و جواب */}
-            <div className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden">
-              <button 
-                type="button" 
-                className="w-full flex justify-between items-center p-4 text-left font-medium text-slate-200 hover:text-orange-400 transition"
-              >
-                <span>How much does a custom website cost?</span>
-                <span className="text-sm text-slate-400">▼</span>
-              </button>
-
-              <div className="border-t border-slate-800/50">
-                <p className="p-4 text-sm leading-relaxed text-slate-400">
-                  The cost depends on the scope, required functionality, and complexity of your project. After our initial discovery call, I will provide a detailed proposal with a transparent quote tailored to your budget and needs.
-                </p>
-              </div>
+    <div id="faq" className="flex flex-col items-center w-full min-h-screen">
+        <h2 className="text-4xl text-gray-200 text-center pt-16">Frequently Asked Questions (FAQ)</h2>
+        <div className="flex flex-col md:flex-row w-full h-[600px] px-4 md:px-16 gap-4 mt-10">
+            <div onClick={()=>setActiveCard(0)} className={`relative text-gray-200 border border-amber-500 rounded-xl p-6 transition-all duration-500 cursor-bezier ${activeCard === 0 ? 'md:w-[60%] h-full' : 'md:w-[20%] h-20 md:h-full'} overflow-hidden gb-gray-900/50`}>
+                <h3>General & Pricing</h3>
+                {/* <Image fill className="" src="/images/faq1.jpg" alt="General & Pricing"/> */}
+                <div>
+                    <p>How much does a custom website cost?</p>
+                    <span>The cost depends on the scope, required functionality, and complexity of your project. After our initial discovery call, I will provide a detailed proposal with a transparent quote tailored to your budget and needs.</span>
+                </div>
+                <div>
+                    <p>How long does it take to complete a website?</p>
+                    <span>A standard website typically takes 2 to 4 weeks, while complex or custom web applications may take 1 to 3 months. A clear timeline will be established before work begins.</span>
+                </div>
+                <div>
+                    <p>What is your typical workflow for a web development project?</p>
+                    <span>The process consists of 4 main phases:<br/>A: Discovery & Planning (defining requirements and goals)<br/>B: UI/UX Design & Wireframing<br/>C: Frontend & Backend Development<br/>D: Testing, Optimization, and Launch</span>
+                </div>
             </div>
-          </div>
+            <div className="relative text-gray-200">
+              <h3>Technical & Functionality</h3>
+              {/* <Image fill className="" src="/images/faq1.jpg" alt="General & Pricing"/> */}
+                <div>
+                    <p>Will my website be mobile-friendly and responsive?</p>
+                    <span>Yes, absolutely. Every project is built using modern responsive design practices to ensure a seamless layout across desktops, tablets, and smartphones.</span>
+                </div>
+                <div>
+                    <p>Will I be able to update content on my site easily?</p>
+                    <span>Yes. I integrate clean Content Management Systems (CMS) or custom admin panels so you can effortlessly manage text, blog posts, images, and products without any coding knowledge.</span>
+                </div>
+                <div>
+                    <p>Is SEO included in your website development process?</p>
+                    <span>Yes. All websites are developed following technical SEO best practices, including fast page load speeds, semantic HTML structure, and mobile optimization.</span>
+                </div>
+            </div>
+            <div className="relative text-gray-200">
+              <h3>Support & Ownership</h3>
+              {/* <Image fill className="" src="/images/faq1.jpg" alt="General & Pricing"/> */}
+                <div>
+                    <p>Do you offer post-launch support and maintenance?</p>
+                    <span>Yes, all projects include 30 days of free post-launch support to resolve any bugs or issues. Ongoing monthly or annual maintenance packages are also available.</span>
+                </div>
+                <div>
+                    <p>Who owns the website code and assets?</p>
+                    <span>You hold 100% full ownership of all source code, domain names, hosting accounts, and media assets upon full project payment.</span>
+                </div>
+                <div>
+                    <p></p>
+                    <span></span>
+                </div>
+            </div>
         </div>
-
-        {/* بخش دوم: Technical & Functionality */}
-        <div>
-          <h3 className="text-xl font-semibold text-orange-400 mb-4">
-            Technical & Functionality
-          </h3>
-        </div>
-
-        {/* بخش سوم: Support & Ownership */}
-        <div>
-          <h3 className="text-xl font-semibold text-orange-400 mb-4">
-            Support & Ownership
-          </h3>
-        </div>
-      </div>
     </div>
-  );
+  )
 }
+
