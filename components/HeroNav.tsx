@@ -30,11 +30,10 @@ export default function HeroNav(){
         </button>
 
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#hero">Home</Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/react-vs-nextjs-fa">Projects</Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/projects">Projects</Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#Technologies" scroll={true}>Tech Stack</Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#faq" scroll={true}> F A Q </Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/shoping">Product</Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/react-vs-nextjs-en">About</Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/about">About</Link>
 
         <div className="hidden md:block">
           <HeroBtn />
@@ -60,9 +59,9 @@ export default function HeroNav(){
         >Home</Link>
 
         <Link onClick={() => setIsMenuOpen(false)}
-          href="/react-vs-nextjs-fa"
+          href="/projects"
           className="hover:text-amber-400 active:scale-95 transition-transform"
-        >Project</Link>
+        >Projects</Link>
 
         <Link onClick={() => setIsMenuOpen(false)}
           href="/#Technologies"
@@ -71,9 +70,10 @@ export default function HeroNav(){
         >Tech Stack</Link>
 
         <Link onClick={() => setIsMenuOpen(false)}
-          href="/shoping"
+          href="/#faq"
+          scroll={true}
           className="hover:text-amber-400 active:scale-95 transition-transform"
-        >Product</Link>
+        >Faq</Link>
 
         <Link
           onClick={() => setIsMenuOpen(false)}
@@ -81,10 +81,12 @@ export default function HeroNav(){
           className="hover:text-amber-400 active:scale-95 transition-transform"
         >About</Link>
 
+        
+
         <div className="mt-4">
           <HeroBtn />
         </div>
-      </div>
+        </div>
     </>
   );
 }
