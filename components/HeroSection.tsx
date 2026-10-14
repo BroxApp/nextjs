@@ -9,16 +9,20 @@ export default function HeroSection(){
                 autoPlay
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover -z-10 brightness-50">
+                className="absolute inset-0 object-cover brightness-50 w-full h-full z-0">
                 <source src="/images/Hero-Bg.mp4" type="video/mp4" />
                 مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
+        <div className="absolute z-10 inset-0 bg-black opacity-50"></div>
         
-        <div className="flex flex-col items-center justify-center space-y-3 w-full max-w-5xl px-4">
+        <div className="flex flex-col items-center justify-center space-y-3 w-full max-w-5xl px-4 z-20">
             <HeroTyping />
             <HeroTagline />
         </div>
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center z-20">
             <SocialLinks/>
+        </div>
+            
         </section>
     )
 }

@@ -19,6 +19,30 @@ function Projects() {
             </button>
           </Link>
         </div>
+        <div className="bg-amber-50 p-6 rounded-lg shadow-md">
+          <Link href="/shopping">
+            <h2 className="text-2xl font-bold mb-4">Project 1</h2>
+            <p className="text-gray-700">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              quos.
+            </p>
+            <button className="bg-amber-500 text-white px-4 py-2 rounded-md mt-1.5 hover:bg-amber-600 transition-all duration-300">
+              View Project
+            </button>
+          </Link>
+        </div>
+        <div className="bg-amber-50 p-6 rounded-lg shadow-md">
+          <Link href="/shopping">
+            <h2 className="text-2xl font-bold mb-4">Project 1</h2>
+            <p className="text-gray-700">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              quos.
+            </p>
+            <button className="bg-amber-500 text-white px-4 py-2 rounded-md mt-1.5 hover:bg-amber-600 transition-all duration-300">
+              View Project
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
