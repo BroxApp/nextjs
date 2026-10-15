@@ -36,8 +36,7 @@ export default function RegisterPage() {
     }
     setNotification("");
     event.currentTarget.reset();
-
-    console.log("Validated data:", validationResult.data);
+    
     setNotification("Registration successful");
     setTimeout(() => setNotification(""), 3000);
     return;

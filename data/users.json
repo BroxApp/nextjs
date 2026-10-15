@@ -1,0 +1,12 @@
+[
+  {
+    "id": "bc5ada9d-746d-4423-b82c-40d0f80db970",
+    "username": "testuser",
+    "fname": "Test",
+    "lname": "User",
+    "email": "test@example.com",
+    "address": "Test Address",
+    "passwordHash": "cda98b0eb94d01a80c5b0b781ab980e8:bb941cc7c5dae0260574430f776f57cb42a9b20c24c541f1e8673654acdfe8b5e97adea0982e3eb6f409db708053b010449788731bd9f64cc64394aa9c709231",
+    "role": "user"
+  }
+]
