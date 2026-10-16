@@ -38,5 +38,15 @@
     "address": "asdfasdfas",
     "passwordHash": "ae0e74a60150a8678c184d75a8185992:e548979f72a81e66690fa5ec7d1ad2f96f98f9c6be901909a9bb50ac699645bb9b9f1fad15ace6f7363909ecfaed0effcc2768d186db9a5b7efe3faf3e025f3f",
     "role": "user"
+  },
+  {
+    "id": "42c4be9c-3333-448d-b7c7-bd099f044328",
+    "username": "ali123",
+    "fname": "reza123",
+    "lname": "mohammadi123",
+    "email": "ali123@gmail.com",
+    "address": "quetta123",
+    "passwordHash": "a75708aac6e386bddf6e3222a0c3e655:997e5b36abb45ad8d672f2a4b20c24d1497e05c26f26c63ead30f80fe55164bb052dc803aec014f0e0b6048eb698870f71dc87e6eb7f843cd70773da14c1941c",
+    "role": "user"
   }
 ]
