@@ -13,10 +13,12 @@ const registerSchema = z.object({
 
 export default function RegisterPage() {
   const [notification, setNotification] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     const data = {
       username: formData.get("username")?.toString().trim() || "",
@@ -24,22 +26,23 @@ export default function RegisterPage() {
       lname: formData.get("lname")?.toString().trim() || "",
       email: formData.get("email")?.toString().trim() || "",
       address: formData.get("address")?.toString().trim() || "",
-      password: formData.get("password")?.toString().trim() || "",
-    }
+      password: formData.get("password")?.toString() || "",
+    };
 
     const validationResult = registerSchema.safeParse(data);
 
     if (!validationResult.success) {
       setNotification(validationResult.error.issues[0].message);
       setTimeout(() => setNotification(""), 3000);
+      setIsSuccess(false);
       return;
     }
 
     try {
       const response = await fetch("/api/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validationResult.data),
       });
 
       const result = await response.json();
@@ -47,11 +50,13 @@ export default function RegisterPage() {
       if (!response.ok) {
         setNotification(result.message || "Registration failed");
         setTimeout(() => setNotification(""), 3000);
+        setIsSuccess(false);
         return;
       }
       setNotification("Registration successful!");
+      setIsSuccess(true);
       setTimeout(() => setNotification(""), 3000);
-      event.currentTarget.reset(); // Reset the form after successful registration
+      form.reset();
     } catch (error) {
       setNotification("An error occurred during registration");
       setTimeout(() => setNotification(""), 3000);
@@ -62,8 +67,7 @@ export default function RegisterPage() {
     <>
       {
         <div
-          className={`fixed left-5 bottom-5 rounded-lg bg-red-500 px-5 py-3 text-white shadow-lg
-            transition transform duration-500 
+          className={`fixed left-5 bottom-5 rounded-lg  px-5 py-3 text-white transition transform duration-500 ${isSuccess ? "bg-green-600" : "bg-red-500"}
             ${notification ? "translate-x-0" : "-translate-x-20"}`}
         >
           {notification}
@@ -86,6 +90,7 @@ export default function RegisterPage() {
             type="text"
             name="username"
             placeholder="User name"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
@@ -102,6 +107,7 @@ export default function RegisterPage() {
             type="text"
             name="fname"
             placeholder="First name"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
@@ -118,6 +124,7 @@ export default function RegisterPage() {
             type="text"
             name="lname"
             placeholder="Last name"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
@@ -134,6 +141,7 @@ export default function RegisterPage() {
             type="email"
             name="email"
             placeholder="Email"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
@@ -150,6 +158,7 @@ export default function RegisterPage() {
             type="text"
             name="address"
             placeholder="Home address"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
@@ -166,6 +175,7 @@ export default function RegisterPage() {
             type="password"
             name="password"
             placeholder="Password"
+            required
             className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-white outline-none
                  placeholder:text-slate-500 focus:border-orange-500"
           />
