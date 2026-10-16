@@ -14,7 +14,7 @@ const registerSchema = z.object({
 export default function RegisterPage() {
   const [notification, setNotification] = useState("");
 
-  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
@@ -34,12 +34,28 @@ export default function RegisterPage() {
       setTimeout(() => setNotification(""), 3000);
       return;
     }
-    setNotification("");
-    event.currentTarget.reset();
-    
-    setNotification("Registration successful");
-    setTimeout(() => setNotification(""), 3000);
-    return;
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        setNotification(result.message || "Registration failed");
+        setTimeout(() => setNotification(""), 3000);
+        return;
+      }
+      setNotification("Registration successful!");
+      setTimeout(() => setNotification(""), 3000);
+      event.currentTarget.reset(); // Reset the form after successful registration
+    } catch (error) {
+      setNotification("An error occurred during registration");
+      setTimeout(() => setNotification(""), 3000);
+    }
   }
 
   return (
