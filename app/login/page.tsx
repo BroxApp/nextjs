@@ -46,8 +46,10 @@ export default function LoginPage() {
 
       setNotification("Login successful!");
       setTimeout(() => {
-        setNotification("");
+        // window.location.href = "/profile"; // هدایت به صفحه پروفایل پس از لاگین موفق
+        router.refresh(); // تازه‌سازی صفحه برای به‌روزرسانی وضعیت ورود
         router.push("/profile"); // هدایت به صفحه پروفایل پس از لاگین موفق
+
       }, 1500);
     } catch {
       setNotification("Something went wrong");

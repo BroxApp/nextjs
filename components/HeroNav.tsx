@@ -1,14 +1,31 @@
 "use client";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import HeroBtn from "@/components/HeroBtn";
 import Logo from "@/components/SvgLogo";
 
-export default function HeroNav(){
+type HeroNavProps = {
+  isLoggedIn: boolean;
+};
+
+export default function HeroNav({ isLoggedIn }: HeroNavProps){
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isHome = pathname === "/";
+
+  function handleSectionClick(
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) {
+    if (!isLoggedIn) {
+      event.preventDefault();
+      router.push("/login");
+    }
+
+    setIsMenuOpen(false);
+  }
 
   return (
     <>
@@ -31,8 +48,8 @@ export default function HeroNav(){
 
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#hero">Home</Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/projects">Projects</Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#Technologies" scroll={true}>Tech Stack</Link>
-        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#faq" scroll={true}> F A Q </Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#Technologies" scroll={true} onClick={(event) =>handleSectionClick(event, "/#Technologies")}>Tech Stack</Link>
+        <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/#faq" scroll={true} onClick={(event) => handleSectionClick(event, "/#faq")}> F A Q </Link>
         <Link className="hidden md:block hover:text-amber-400 active:scale-95 transition-transform" href="/about">About</Link>
 
         <div className="hidden md:block">
@@ -63,13 +80,13 @@ export default function HeroNav(){
           className="hover:text-amber-400 active:scale-95 transition-transform"
         >Projects</Link>
 
-        <Link onClick={() => setIsMenuOpen(false)}
+        <Link onClick={(event) => handleSectionClick(event, "/#Technologies")}
           href="/#Technologies"
           scroll={true}
           className="hover:text-amber-400 active:scale-95 transition-transform"
         >Tech Stack</Link>
 
-        <Link onClick={() => setIsMenuOpen(false)}
+        <Link onClick={(event) => handleSectionClick(event, "/#faq")}
           href="/#faq"
           scroll={true}
           className="hover:text-amber-400 active:scale-95 transition-transform"
@@ -81,11 +98,10 @@ export default function HeroNav(){
           className="hover:text-amber-400 active:scale-95 transition-transform"
         >About</Link>
 
-        
-
         <div className="mt-4">
           <HeroBtn />
         </div>
+        
         </div>
     </>
   );
