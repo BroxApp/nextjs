@@ -15,21 +15,21 @@ export default async function About() {
       className="flex h-screen w-full flex-col items-center justify-center py-10"
     >
       <h1 className="mb-10 text-center text-4xl font-bold text-gray-200">
-        Its me Ali Reza. I am a web developer
+        Its Boundless Team. A web developer Team.
       </h1>
 
       <p className="mb-10 text-center text-gray-400">
-        I am a web developer with a passion for creating beautiful and
-        functional websites. I am a quick learner and I am always looking to
-        improve my skills.
+        we are a web developer team with a passion for creating beautiful and
+        functional websites. We are a quick learner and we are always looking to
+        improve our skills.
       </p>
 
       <p className="mb-10 text-center text-gray-400">
-        I am a quick learner and I am always looking to improve my skills.
+        We are a quick learner and we are always looking to improve our skills.
       </p>
 
       <p className="mb-10 text-center text-gray-400">
-        I am a quick learner and I am always looking to improve my skills.
+        We are a quick learner and we are always looking to improve our skills.
       </p>
     </div>
   );
