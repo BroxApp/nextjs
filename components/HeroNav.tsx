@@ -20,18 +20,16 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
 
   const isHome = pathname === "/";
 
-  function handleSectionClick(
-  event: React.MouseEvent<HTMLAnchorElement>
-) {
-  if (!isLoggedIn) {
-    event.preventDefault();
-    setIsMenuOpen(false);
-    router.push("/login");
-    return;
-  }
+  function handleSectionClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (!isLoggedIn) {
+      event.preventDefault();
+      setIsMenuOpen(false);
+      router.push("/login");
+      return;
+    }
 
-  setIsMenuOpen(false);
-}
+    setIsMenuOpen(false);
+  }
   // افکت اسکرول فقط در صفحه اصلی
   useEffect(() => {
     if (!isHome) return;
@@ -48,11 +46,6 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isHome]);
-
-  // بستن منوی موبایل هنگام تغییر مسیر
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   // خروج از حساب با استفاده از API موجود
   async function handleLogout() {
@@ -78,8 +71,8 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
     }
   }
 
-  // دکمه‌های ورود و خروج
-  function AuthButtons({ mobile = false }: { mobile?: boolean }) {
+  // تابع رندر دکمه‌های ورود و خروج
+  const renderAuthButtons = (mobile = false) => {
     const baseClass = mobile
       ? "w-full rounded-lg px-4 py-1 text-center font-semibold transition active:scale-95"
       : "rounded-lg px-4 py-1 font-semibold transition active:scale-95";
@@ -122,7 +115,7 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
         </Link>
       </>
     );
-  }
+  };
 
   return (
     <>
@@ -199,7 +192,7 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
 
         {/* دکمه‌های احراز هویت دسکتاپ */}
         <div className="hidden items-center gap-2 md:flex">
-          <AuthButtons />
+          {renderAuthButtons()}
         </div>
       </nav>
 
@@ -239,7 +232,8 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
 
         <Link
           href="/#Technologies"
-          onClick={handleSectionClick}          
+          scroll={true}
+          onClick={handleSectionClick}
           className="transition-transform hover:text-amber-400 active:scale-95"
         >
           Tech Stack
@@ -247,6 +241,7 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
 
         <Link
           href="/#faq"
+          scroll={true}
           onClick={handleSectionClick}
           className="transition-transform hover:text-amber-400 active:scale-95"
         >
@@ -262,9 +257,7 @@ export default function HeroNav({ isLoggedIn }: HeroNavProps) {
         </Link>
 
         <div className="w-full border-t border-slate-700 pt-5">
-          <div className="flex flex-col gap-3">
-            <AuthButtons mobile />
-          </div>
+          <div className="flex flex-col gap-3">{renderAuthButtons(true)}</div>
         </div>
 
         <div className="w-full">
